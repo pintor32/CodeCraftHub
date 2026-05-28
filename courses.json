@@ -1,10 +1,26 @@
 [
   {
     "id": 1,
-    "creado_en": "2023-10-15T12:00:00.000Z",
-    "nombre": "Curso de JavaScript",
-    "descripcion": "Aprender los conceptos básicos de JavaScript.",
-    "fecha_objetivo": "2023-12-31",
-    "estado": "No iniciado"
+    "created_at": "2023-10-15T12:00:00.000Z",
+    "name": "Curso de JavaScript",
+    "description": "Aprender los conceptos básicos de JavaScript.",
+    "target_date": "2023-12-31",
+    "status": "Not Started"
+  },
+  {
+    "id": 2,
+    "created_at": "2024-10-15T12:00:00.000Z",
+    "name": "Curso de Phyton",
+    "description": "Aprender los conceptos básicos de Python.",
+    "target_date": "2024-02-01",
+    "status": "Not Started"
+  },
+  {
+    "id": null,
+    "created_at": "2026-05-28T19:28:14.072Z",
+    "name": "Javascript ll",
+    "description": "Javascript Cap.2",
+    "target_date": "2026-05-28",
+    "status": "In Progress"
   }
 ]
