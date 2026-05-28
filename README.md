@@ -27,14 +27,18 @@ Documentación de los endpoints de la API
 1. Agregar un nuevo curso
 POST
 /api/courses
+
 Body (JSON):
+
 {
     "nombre": "Curso de JavaScript",
     "descripcion": "Aprender los conceptos básicos de JavaScript.",
     "fecha_objetivo": "2023-12-31",
     "estado": "No iniciado"
 }
+
 Respuesta: 201 Created (JSON):
+
 {
     "id": 1,
     "creado_en": "2023-10-15T12:00:00.000Z",
@@ -43,10 +47,14 @@ Respuesta: 201 Created (JSON):
     "fecha_objetivo": "2023-12-31",
     "estado": "No iniciado"
 }
+
 2. Obtener todos los cursos
+
 GET
 /api/courses
+
 Respuesta: 200 OK (JSON):
+
 [
     {
         "id": 1,
@@ -57,12 +65,17 @@ Respuesta: 200 OK (JSON):
         "estado": "No iniciado"
     }
 ]
+
 3. Obtener un curso específico
+
 GET
 /api/courses/:id
+
 Ejemplo:
 /api/courses/1
+
 Respuesta: 200 OK (JSON):
+
 {
     "id": 1,
     "creado_en": "2023-10-15T12:00:00.000Z",
@@ -71,13 +84,17 @@ Respuesta: 200 OK (JSON):
     "fecha_objetivo": "2023-12-31",
     "estado": "No iniciado"
 }
+
 Respuesta: 404 Not Found si el curso no se encuentra.
+
 4. Actualizar un curso
 PUT
 /api/courses/:id
 Ejemplo:
 /api/courses/1
+
 Body (JSON):
+
 {
     "estado": "En progreso"
 }
@@ -90,14 +107,19 @@ Respuesta: 200 OK (JSON):
     "fecha_objetivo": "2023-12-31",
     "estado": "En progreso"
 }
+
 Respuesta: 404 Not Found si el curso no se encuentra.
+
 5. Eliminar un curso
 DELETE
 /api/courses/:id
+
 Ejemplo:
 /api/courses/1
+
 Respuesta: 204 No Content al eliminar exitosamente el curso.
 Respuesta: 404 Not Found si el curso no se encuentra.
+
 Solución de problemas
 Error: Curso no encontrado: Asegúrate de que estás utilizando un ID válido para los cursos.
 Error: Campo requerido faltante: Ver
