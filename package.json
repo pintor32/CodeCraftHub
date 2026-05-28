@@ -1,0 +1,16 @@
+{
+  "name": "codecrafthub",
+  "version": "1.0.0",
+  "description": "API de seguimiento de objetivos de aprendizaje personal",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.22.2"
+  },
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "type": "commonjs"
+}
