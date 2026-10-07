@@ -13,8 +13,12 @@ jobs:
     
     permissions:
       pull-requests: write
+      contents: read
 
     steps:
+      - name: Descargar el repositorio (Checkout)
+        uses: actions/checkout@v4
+
       - name: Crear comentario nativo para disparar correos
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -23,7 +27,7 @@ jobs:
           🔔 **Notificación de pull a Main**
 
           Se ha aprobado el pull request a la rama main del siguiente repositorio:
-          📍 **Repositorio:** https://github.com{{ github.repository }}
+          📍 **Repositorio:** https://github.com/${{ github.repository }}
 
           ---
           ### 📊 Detalles del Pull Request:
