@@ -19,21 +19,22 @@ jobs:
       - name: Descargar repositorio (Checkout)
         uses: actions/checkout@v4
 
-      - name: Crear comentario nativo para disparar correos
+      - name: Crear comentario nativo en el PR
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          COMENTARIO: |
+            🔔 **Notificación de pull a Main**
+
+            Se ha aprobado el pull request a la rama main del siguiente repositorio:
+            📍 **Repositorio:** https://github.com/${{ github.repository }}
+
+            ---
+            ### 📊 Detalles del Pull Request:
+            * **Título:** "${{ github.event.pull_request.title }}"
+            * **Autor:** @${{ github.event.pull_request.user.login }}
+            * **Enlace directo al PR:** ${{ github.event.pull_request.html_url }}
+
+            cc: @pintor32
         run: |
-          cat << 'EOF' | gh pr comment ${{ github.event.pull_request.number }} --body -
-          🔔 **Notificación de pull a Main**
-
-          Se ha aprobado el pull request a la rama main del siguiente repositorio:
-          📍 **Repositorio:** https://github.com/${{ github.repository }}
-
-          ---
-          ### 📊 Detalles del Pull Request:
-          * **Título:** "${{ github.event.pull_request.title }}"
-          * **Autor:** @${{ github.event.pull_request.user.login }}
-          * **Enlace directo al PR:** ${{ github.event.pull_request.html_url }}
-
-          cc: @pintor32
-          EOF
+          gh pr comment $PR_NUMBER --body "$COMENTARIO"
