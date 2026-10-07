@@ -122,4 +122,3 @@ Respuesta: 404 Not Found si el curso no se encuentra.
 
 Solución de problemas
 Error: Curso no encontrado: Asegúrate de que estás utilizando un ID válido para los cursos.
-Error: Campo requerido faltante: Ver
