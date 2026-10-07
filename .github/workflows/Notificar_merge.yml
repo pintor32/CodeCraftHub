@@ -1,0 +1,35 @@
+name: Notificación de merge a rama Main
+
+on:
+  pull_request:
+    branches:
+      - main
+    types: [closed]
+
+jobs:
+  comentar-y-notificar:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest 
+    
+    permissions:
+      pull-requests: write
+
+    steps:
+      - name: Crear comentario nativo para disparar correos
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cat << 'EOF' | gh pr comment ${{ github.event.pull_request.number }} --body -
+          🔔 **Notificación de pull a Main**
+
+          Se ha aprobado el pull request a la rama main del siguiente repositorio:
+          📍 **Repositorio:** https://github.com{{ github.repository }}
+
+          ---
+          ### 📊 Detalles del Pull Request:
+          * **Título:** "${{ github.event.pull_request.title }}"
+          * **Autor:** @${{ github.event.pull_request.user.login }}
+          * **Enlace directo al PR:** ${{ github.event.pull_request.html_url }}
+
+          cc: @pintor32
+          EOF
